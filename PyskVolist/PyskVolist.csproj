@@ -18,4 +18,18 @@
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Components\" />
+    <None Remove="Model\" />
+    <None Remove="Controller\" />
+    <None Remove="Services\" />
+    <None Remove="Services\ISrv\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+    <Folder Include="Model\" />
+    <Folder Include="Controller\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\ISrv\" />
+  </ItemGroup>
 </Project>

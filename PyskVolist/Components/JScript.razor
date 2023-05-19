@@ -1,0 +1,24 @@
+﻿@using PyskVolist.Services.ISrv
+@inject IJSInvokerService js
+@inject IJSRuntime jr
+@code {
+
+
+
+    [Parameter]
+    public string? invoke_method { get; set; }
+
+    [Parameter]
+    public string script { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        js.Eval(script);
+
+        base.OnAfterRender(firstRender);
+    }
+
+
+
+}
+
