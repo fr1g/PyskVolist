@@ -1,11 +1,18 @@
 ﻿@page "/"
 @using PyskVolist.Components
+@using PyskVolist.Model
 @inject IJSInvokerService ijs
 @inject IJSRuntime jss
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Main Window</PageTitle>
 
-
+<MudContainer Style="background-color: transparent !important" Class="pa-2">
+    <MudPaper Class="" Square="false" Elevation="2">
+        <MudForm >
+            <MudInput T="string" ></MudInput>
+        </MudForm>
+    </MudPaper>
+</MudContainer>
 
 
 
@@ -14,6 +21,38 @@
 <JScript script="init_announce();" />
 
 @code{
+    public Slowo slowo;
+    public string Translation { get; set; } // 词翻译
+    public string Word { get; set; } // 词本体
+    public string? WordType { get; set; } // 词类 if null give no tag
+    public string? SV { get; set; } // 对应完成体 
+    public string? Direction { get; set; } // for motivate verbs that have directions. if not null give sign
+    public string? Follow { get; set; } // 接格关系
+    public int? HardIndex { get; set; } // 重音index
+    public bool ForceBasic { get; set; }
 
+    public void CreateSlowo()
+    {
+        slowo = new();
+        slowo.Translation = Translation;
+        slowo.ForceBasic = ForceBasic;
+        slowo.Word = ReplaceAccent(Word);
+        //
+
+    }
+
+    public string ReplaceAccent(string sword)
+    {
+        return sword.Replace($"{Alphabets.a}*", Alphabets.a_)
+                    .Replace($"{Alphabets.o}*", Alphabets.o_)
+                    .Replace($"{Alphabets.e}*", Alphabets.e_)
+                    .Replace($"{Alphabets.i}*", Alphabets.i_)
+                    .Replace($"{Alphabets.u}*", Alphabets.u_)
+                    .Replace($"{Alphabets.y}*", Alphabets.y_)
+                    .Replace($"{Alphabets.ju}*", Alphabets.ju_)
+                    .Replace($"{Alphabets.ja}*", Alphabets.ja_)
+                    .Replace($"{Alphabets.ae}*", Alphabets.ae_)
+                    ;
+    }
 }
 

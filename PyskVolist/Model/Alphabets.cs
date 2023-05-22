@@ -37,6 +37,17 @@ namespace PyskVolist.Model
 		public const string ju = "ю";
 		public const string ja = "я";
 
+        //
+
+        public const string a_ = "á";
+        public const string e_ = "е́";
+        public const string i_ = "и́";
+        public const string o_ = "о́";
+        public const string u_ = "у́";
+        public const string y_ = "ы́";
+        public const string ae_ = "э́";
+        public const string ju_ = "ю́";
+        public const string ja_ = "я́";
 
     }
 }

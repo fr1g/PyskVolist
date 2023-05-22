@@ -26,7 +26,7 @@ namespace PyskVolist.Controller
 			{
                 if (S.Direction is not null) _data += $",{S.Direction}:";
                 if (S.SV is not null) _data += $".{S.SV}:";
-				if (S.HardIndex is not null) _accWord = S.Word + $"*{++S.HardIndex}";
+				if (S.HardIndex is not null) _accWord = S.Word + $"^{++S.HardIndex}";
 				else _accWord = S.Word;
             }
 
